@@ -31,6 +31,7 @@ module ActiveRecord
 
       def clear_connections
         if should_clear_all_connections?
+          ActiveRecord::Base.connection_handler.clear_all_connections!
           ActiveRecord::Base.clear_all_connections!
         else
           ActiveRecord::Base.clear_active_connections!
